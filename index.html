@@ -4,6 +4,62 @@
   <meta charset="UTF-8">
   <title>Feliz Cumpleaños</title>
   <style>
+    /* Aquí van todos tus estilos */
+    
+    /* 🔽 PEGA AQUÍ al final de tus estilos el bloque RESPONSIVE que te pasé */
+    
+    @media (max-width: 600px) {
+      h1 {
+        font-size: 1.8rem;
+        margin-top: 20px;
+        text-align: center;
+        padding: 0 10px;
+      }
+
+      .cake {
+        transform: scale(0.8);
+        margin: 20px 0;
+      }
+
+      .audio-player {
+        padding: 15px;
+        border-radius: 15px;
+        max-width: 90%;
+      }
+
+      .play, .pause {
+        width: 40px;
+        height: 40px;
+      }
+
+      .play::before {
+        border-width: 10px 0 10px 16px;
+      }
+
+      .pause::before {
+        width: 6px;
+        height: 20px;
+        box-shadow: 10px 0 white;
+        left: 12px;
+        top: 10px;
+      }
+
+      .progress-container {
+        height: 8px;
+      }
+
+      .progress::after {
+        width: 12px;
+        height: 12px;
+      }
+
+      .time {
+        font-size: 0.8rem;
+      }
+    }
+
+
+    
     body {
       background-color: #333;
       margin: 0;
