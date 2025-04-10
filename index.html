@@ -2,89 +2,32 @@
 <html lang="es">
 <head>
   <meta charset="UTF-8">
-  <title>Feliz Cumpleaños</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>🎂Feliz Cumpleaños🎉</title>
   <style>
-    /* Aquí van todos tus estilos */
-    
-    /* 🔽 PEGA AQUÍ al final de tus estilos el bloque RESPONSIVE que te pasé */
-    
-    @media (max-width: 600px) {
-      h1 {
-        font-size: 1.8rem;
-        margin-top: 20px;
-        text-align: center;
-        padding: 0 10px;
-      }
-
-      .cake {
-        transform: scale(0.8);
-        margin: 20px 0;
-      }
-
-      .audio-player {
-        padding: 15px;
-        border-radius: 15px;
-        max-width: 90%;
-      }
-
-      .play, .pause {
-        width: 40px;
-        height: 40px;
-      }
-
-      .play::before {
-        border-width: 10px 0 10px 16px;
-      }
-
-      .pause::before {
-        width: 6px;
-        height: 20px;
-        box-shadow: 10px 0 white;
-        left: 12px;
-        top: 10px;
-      }
-
-      .progress-container {
-        height: 8px;
-      }
-
-      .progress::after {
-        width: 12px;
-        height: 12px;
-      }
-
-      .time {
-        font-size: 0.8rem;
-      }
-    }
-
-
-    
     body {
       background-color: #333;
       margin: 0;
-      padding: 0;
       font-family: 'Arial', sans-serif;
+      color: white;
       display: flex;
       flex-direction: column;
       align-items: center;
-      justify-content: flex-start;
-      height: 100vh;
-      overflow-x: hidden;
-      color: #fff;
     }
 
     h1 {
+      text-align: center;
       margin-top: 30px;
       font-size: 2.5rem;
-      text-shadow: 2px 2px 10px #92d8d6;
+      color: #fff;
+      text-shadow: 2px 2px 5px #000;
     }
 
     .cake {
       position: relative;
       width: 250px;
       height: 200px;
-      margin: 80px 0;
+      margin: 40px auto;
     }
 
     .cake > * {
@@ -98,7 +41,10 @@
       left: -10px;
       background-color: #ccc;
       border-radius: 50%;
-      box-shadow: 0 2px 0 #b3b3b3, 0 4px 0 #b3b3b3, 0 5px 40px rgba(0, 0, 0, 0.5);
+      box-shadow:
+        0 2px 0 #b3b3b3,
+        0 4px 0 #b3b3b3,
+        0 5px 40px rgba(0, 0, 0, 0.5);
     }
 
     .layer {
@@ -106,7 +52,22 @@
       height: 100px;
       border-radius: 50%;
       background-color: #553c13;
-      box-shadow: 0 2px 0px #5f451a, 0 4px 0px #4d3511, 0 6px 0px #4c3310, 0 8px 0px #4b310f, 0 10px 0px #4a300f, 0 12px 0px #49300f, 0 14px 0px #482f0e, 0 16px 0px #472e0e, 0 18px 0px #462d0e, 0 20px 0px #452c0e, 0 22px 0px #442b0e, 0 24px 0px #432a0e, 0 26px 0px #42290e, 0 28px 0px #41280e, 0 30px 0px #40270e;
+      box-shadow:
+        0 2px 0px #5f451a,
+        0 4px 0px #4d3511,
+        0 6px 0px #4c3310,
+        0 8px 0px #4b310f,
+        0 10px 0px #4a300f,
+        0 12px 0px #49300f,
+        0 14px 0px #482f0e,
+        0 16px 0px #472e0e,
+        0 18px 0px #462d0e,
+        0 20px 0px #452c0e,
+        0 22px 0px #442b0e,
+        0 24px 0px #432a0e,
+        0 26px 0px #42290e,
+        0 28px 0px #41280e,
+        0 30px 0px #40270e;
     }
 
     .layer-top { top: 0px; }
@@ -130,7 +91,7 @@
       bottom: 6px;
       left: 5px;
       background-color: #f3e7d6;
-      box-shadow: 0 0 4px #f5e9d8, 0 0 4px #f5e9d8, 0 0 4px #f5e9d8;
+      box-shadow: 0 0 4px #f5e9d8;
       border-radius: 50%;
       z-index: 1;
     }
@@ -144,27 +105,9 @@
       background-color: #f0e4d0;
     }
 
-    .drip1 {
-      top: 53px;
-      left: 5px;
-      transform: skewY(15deg);
-      height: 48px;
-      width: 40px;
-    }
-
-    .drip2 {
-      top: 69px;
-      left: 181px;
-      transform: skewY(-15deg);
-    }
-
-    .drip3 {
-      top: 54px;
-      left: 90px;
-      width: 80px;
-      border-bottom-left-radius: 40px;
-      border-bottom-right-radius: 40px;
-    }
+    .drip1 { top: 53px; left: 5px; transform: skewY(15deg); height: 48px; width: 40px; }
+    .drip2 { top: 69px; left: 181px; transform: skewY(-15deg); }
+    .drip3 { top: 54px; left: 90px; width: 80px; border-radius: 0 0 40px 40px; }
 
     .candle {
       background-color: #7B020B;
@@ -198,110 +141,115 @@
       left: 50%;
       margin-left: -7.5px;
       z-index: 10;
-      box-shadow: 0 0 10px rgba(255,165,0, 0.5), 0 0 20px rgba(255,165,0, 0.5), 0 0 60px rgba(255,165,0, 0.5), 0 0 80px rgba(255,165,0, 0.5);
-      transform-origin: 50% 90%;
+      box-shadow: 0 0 60px rgba(255,165,0,0.6);
       animation: flicker 1s ease-in-out alternate infinite;
     }
 
     @keyframes flicker {
-      0% { transform: skewX(5deg); }
+      0%, 100% { transform: skewX(5deg); }
       25% { transform: skewX(-5deg); }
       50% { transform: skewX(10deg); }
       75% { transform: skewX(-10deg); }
-      100% { transform: skewX(5deg); }
     }
 
     .audio-player {
+      margin-top: 40px;
       background: #444;
       padding: 20px;
       border-radius: 20px;
-      box-shadow: 0 0 20px #000;
-      max-width: 320px;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.5);
+      max-width: 400px;
       width: 90%;
-      margin-bottom: 40px;
     }
 
     .controls {
       display: flex;
-      flex-direction: column;
       align-items: center;
+      gap: 15px;
     }
 
     .play, .pause {
       width: 50px;
       height: 50px;
       border-radius: 50%;
+      background: #fff;
       border: none;
-      background: #25b0ac;
-      box-shadow: 0 4px 10px rgba(0,0,0,0.5);
       cursor: pointer;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.4);
       position: relative;
-      margin-bottom: 10px;
-    }
-
-    .play::before, .pause::before {
-      content: '';
-      position: absolute;
-      top: 14px;
-      left: 20px;
-      border-style: solid;
     }
 
     .play::before {
-      border-width: 12px 0 12px 20px;
-      border-color: transparent transparent transparent white;
+      content: '';
+      position: absolute;
+      left: 18px;
+      top: 14px;
+      border-style: solid;
+      border-width: 10px 0 10px 18px;
+      border-color: transparent transparent transparent black;
     }
 
     .pause::before {
       content: '';
+      position: absolute;
       width: 8px;
       height: 24px;
-      background: white;
-      left: 14px;
+      background: black;
+      left: 13px;
       top: 13px;
-      box-shadow: 14px 0 white;
+      box-shadow: 14px 0 black;
     }
 
     .progress-container {
-      width: 100%;
+      background: #666;
       height: 10px;
-      background: #888;
-      border-radius: 10px;
+      border-radius: 5px;
+      flex-grow: 1;
       cursor: pointer;
       position: relative;
-      margin: 10px 0;
     }
 
     .progress {
+      background: #f1c40f;
       height: 100%;
-      background: linear-gradient(90deg, #25b0ac, #92d8d6);
       width: 0%;
-      border-radius: 10px;
+      border-radius: 5px;
       position: relative;
     }
 
     .progress::after {
-      content: "";
+      content: '';
       position: absolute;
       right: 0;
       top: 50%;
-      transform: translate(50%, -50%);
-      width: 16px;
-      height: 16px;
+      width: 14px;
+      height: 14px;
       background: #fff;
       border-radius: 50%;
-      box-shadow: 0 0 5px #000;
+      transform: translate(50%, -50%);
+      box-shadow: 0 2px 4px rgba(0,0,0,0.5);
     }
 
     .time {
       font-size: 0.9rem;
-      margin-top: 5px;
+    }
+
+    @media (max-width: 600px) {
+      h1 { font-size: 1.8rem; margin-top: 20px; padding: 0 10px; }
+      .cake { transform: scale(0.8); margin: 20px 0; }
+      .audio-player { padding: 15px; border-radius: 15px; }
+      .play, .pause { width: 40px; height: 40px; }
+      .play::before { border-width: 10px 0 10px 16px; }
+      .pause::before { width: 6px; height: 20px; box-shadow: 10px 0 white; left: 12px; top: 10px; }
+      .progress-container { height: 8px; }
+      .progress::after { width: 12px; height: 12px; }
+      .time { font-size: 0.8rem; }
     }
   </style>
 </head>
 <body>
 
-  <h1>🎂 ¡Feliz Cumpleaños! 🎉</h1>
+  <h1>🎉 ¡Feliz Cumpleaños! 🎉</h1>
 
   <div class="cake">
     <div class="plate"></div>
@@ -318,58 +266,53 @@
   </div>
 
   <div class="audio-player">
-    <audio id="song" preload="auto">
-      <source src="cumpleaños.mp3" type="audio/mp3">
-      Tu navegador no soporta audio HTML5.
-    </audio>
     <div class="controls">
-      <button id="playPause" class="play"></button>
-      <div class="progress-container" id="progressContainer">
-        <div class="progress" id="progressBar"></div>
+      <button id="togglePlay" class="play"></button>
+      <div class="progress-container" id="progress-container">
+        <div class="progress" id="progress"></div>
       </div>
-      <div class="time">
-        <span id="currentTime">0:00</span> / <span id="duration">0:00</span>
-      </div>
+      <span class="time" id="current-time">0:00</span> / <span class="time" id="duration">0:00</span>
     </div>
+    <audio id="audio" src="cumpleaños.mp3"></audio> <!-- Reemplaza con tu archivo -->
   </div>
 
   <script>
-    const audio = document.getElementById("song");
-    const playPauseBtn = document.getElementById("playPause");
-    const currentTimeSpan = document.getElementById("currentTime");
-    const durationSpan = document.getElementById("duration");
-    const progressContainer = document.getElementById("progressContainer");
-    const progressBar = document.getElementById("progressBar");
+    const audio = document.getElementById('audio');
+    const togglePlay = document.getElementById('togglePlay');
+    const progressContainer = document.getElementById('progress-container');
+    const progress = document.getElementById('progress');
+    const currentTimeEl = document.getElementById('current-time');
+    const durationEl = document.getElementById('duration');
 
-    function formatTime(seconds) {
-      const mins = Math.floor(seconds / 60);
-      const secs = Math.floor(seconds % 60);
-      return `${mins}:${secs < 10 ? "0" : ""}${secs}`;
+    function formatTime(time) {
+      const minutes = Math.floor(time / 60);
+      const seconds = Math.floor(time % 60).toString().padStart(2, '0');
+      return `${minutes}:${seconds}`;
     }
 
-    audio.addEventListener("loadedmetadata", () => {
-      durationSpan.textContent = formatTime(audio.duration);
+    audio.addEventListener('loadedmetadata', () => {
+      durationEl.textContent = formatTime(audio.duration);
     });
 
-    audio.addEventListener("timeupdate", () => {
-      currentTimeSpan.textContent = formatTime(audio.currentTime);
+    audio.addEventListener('timeupdate', () => {
       const percent = (audio.currentTime / audio.duration) * 100;
-      progressBar.style.width = percent + "%";
+      progress.style.width = percent + '%';
+      currentTimeEl.textContent = formatTime(audio.currentTime);
     });
 
-    playPauseBtn.addEventListener("click", () => {
+    togglePlay.addEventListener('click', () => {
       if (audio.paused) {
         audio.play();
-        playPauseBtn.classList.remove("play");
-        playPauseBtn.classList.add("pause");
+        togglePlay.classList.remove('play');
+        togglePlay.classList.add('pause');
       } else {
         audio.pause();
-        playPauseBtn.classList.remove("pause");
-        playPauseBtn.classList.add("play");
+        togglePlay.classList.remove('pause');
+        togglePlay.classList.add('play');
       }
     });
 
-    progressContainer.addEventListener("click", (e) => {
+    progressContainer.addEventListener('click', (e) => {
       const width = progressContainer.clientWidth;
       const clickX = e.offsetX;
       const duration = audio.duration;
