@@ -1,0 +1,325 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Feliz Cumpleaños</title>
+  <style>
+    body {
+      background-color: #333;
+      margin: 0;
+      padding: 0;
+      font-family: 'Arial', sans-serif;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: flex-start;
+      height: 100vh;
+      overflow-x: hidden;
+      color: #fff;
+    }
+
+    h1 {
+      margin-top: 30px;
+      font-size: 2.5rem;
+      text-shadow: 2px 2px 10px #92d8d6;
+    }
+
+    .cake {
+      position: relative;
+      width: 250px;
+      height: 200px;
+      margin: 80px 0;
+    }
+
+    .cake > * {
+      position: absolute;
+    }
+
+    .plate {
+      width: 270px;
+      height: 110px;
+      bottom: -10px;
+      left: -10px;
+      background-color: #ccc;
+      border-radius: 50%;
+      box-shadow: 0 2px 0 #b3b3b3, 0 4px 0 #b3b3b3, 0 5px 40px rgba(0, 0, 0, 0.5);
+    }
+
+    .layer {
+      width: 250px;
+      height: 100px;
+      border-radius: 50%;
+      background-color: #553c13;
+      box-shadow: 0 2px 0px #5f451a, 0 4px 0px #4d3511, 0 6px 0px #4c3310, 0 8px 0px #4b310f, 0 10px 0px #4a300f, 0 12px 0px #49300f, 0 14px 0px #482f0e, 0 16px 0px #472e0e, 0 18px 0px #462d0e, 0 20px 0px #452c0e, 0 22px 0px #442b0e, 0 24px 0px #432a0e, 0 26px 0px #42290e, 0 28px 0px #41280e, 0 30px 0px #40270e;
+    }
+
+    .layer-top { top: 0px; }
+    .layer-middle { top: 33px; }
+    .layer-bottom { top: 66px; }
+
+    .icing {
+      top: 2px;
+      left: 5px;
+      background-color: #f0e4d0;
+      width: 240px;
+      height: 90px;
+      border-radius: 50%;
+    }
+
+    .icing:before {
+      content: "";
+      position: absolute;
+      top: 4px;
+      right: 5px;
+      bottom: 6px;
+      left: 5px;
+      background-color: #f3e7d6;
+      box-shadow: 0 0 4px #f5e9d8, 0 0 4px #f5e9d8, 0 0 4px #f5e9d8;
+      border-radius: 50%;
+      z-index: 1;
+    }
+
+    .drip {
+      display: block;
+      width: 50px;
+      height: 60px;
+      border-bottom-left-radius: 25px;
+      border-bottom-right-radius: 25px;
+      background-color: #f0e4d0;
+    }
+
+    .drip1 {
+      top: 53px;
+      left: 5px;
+      transform: skewY(15deg);
+      height: 48px;
+      width: 40px;
+    }
+
+    .drip2 {
+      top: 69px;
+      left: 181px;
+      transform: skewY(-15deg);
+    }
+
+    .drip3 {
+      top: 54px;
+      left: 90px;
+      width: 80px;
+      border-bottom-left-radius: 40px;
+      border-bottom-right-radius: 40px;
+    }
+
+    .candle {
+      background-color: #7B020B;
+      width: 16px;
+      height: 50px;
+      border-radius: 8px / 4px;
+      top: -20px;
+      left: 50%;
+      margin-left: -8px;
+      z-index: 10;
+    }
+
+    .candle:before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 16px;
+      height: 8px;
+      border-radius: 50%;
+      background-color: #961f24;
+    }
+
+    .flame {
+      position: absolute;
+      background-color: orange;
+      width: 15px;
+      height: 35px;
+      border-radius: 10px 10px 10px 10px / 25px 25px 10px 10px;
+      top: -34px;
+      left: 50%;
+      margin-left: -7.5px;
+      z-index: 10;
+      box-shadow: 0 0 10px rgba(255,165,0, 0.5), 0 0 20px rgba(255,165,0, 0.5), 0 0 60px rgba(255,165,0, 0.5), 0 0 80px rgba(255,165,0, 0.5);
+      transform-origin: 50% 90%;
+      animation: flicker 1s ease-in-out alternate infinite;
+    }
+
+    @keyframes flicker {
+      0% { transform: skewX(5deg); }
+      25% { transform: skewX(-5deg); }
+      50% { transform: skewX(10deg); }
+      75% { transform: skewX(-10deg); }
+      100% { transform: skewX(5deg); }
+    }
+
+    .audio-player {
+      background: #444;
+      padding: 20px;
+      border-radius: 20px;
+      box-shadow: 0 0 20px #000;
+      max-width: 320px;
+      width: 90%;
+      margin-bottom: 40px;
+    }
+
+    .controls {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .play, .pause {
+      width: 50px;
+      height: 50px;
+      border-radius: 50%;
+      border: none;
+      background: #25b0ac;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.5);
+      cursor: pointer;
+      position: relative;
+      margin-bottom: 10px;
+    }
+
+    .play::before, .pause::before {
+      content: '';
+      position: absolute;
+      top: 14px;
+      left: 20px;
+      border-style: solid;
+    }
+
+    .play::before {
+      border-width: 12px 0 12px 20px;
+      border-color: transparent transparent transparent white;
+    }
+
+    .pause::before {
+      content: '';
+      width: 8px;
+      height: 24px;
+      background: white;
+      left: 14px;
+      top: 13px;
+      box-shadow: 14px 0 white;
+    }
+
+    .progress-container {
+      width: 100%;
+      height: 10px;
+      background: #888;
+      border-radius: 10px;
+      cursor: pointer;
+      position: relative;
+      margin: 10px 0;
+    }
+
+    .progress {
+      height: 100%;
+      background: linear-gradient(90deg, #25b0ac, #92d8d6);
+      width: 0%;
+      border-radius: 10px;
+      position: relative;
+    }
+
+    .progress::after {
+      content: "";
+      position: absolute;
+      right: 0;
+      top: 50%;
+      transform: translate(50%, -50%);
+      width: 16px;
+      height: 16px;
+      background: #fff;
+      border-radius: 50%;
+      box-shadow: 0 0 5px #000;
+    }
+
+    .time {
+      font-size: 0.9rem;
+      margin-top: 5px;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>🎂 ¡Feliz Cumpleaños! 🎉</h1>
+
+  <div class="cake">
+    <div class="plate"></div>
+    <div class="layer layer-bottom"></div>
+    <div class="layer layer-middle"></div>
+    <div class="layer layer-top"></div>
+    <div class="icing"></div>
+    <div class="drip drip1"></div>
+    <div class="drip drip2"></div>
+    <div class="drip drip3"></div>
+    <div class="candle">
+      <div class="flame"></div>
+    </div>
+  </div>
+
+  <div class="audio-player">
+    <audio id="song" preload="auto">
+      <source src="cumpleaños.mp3" type="audio/mp3">
+      Tu navegador no soporta audio HTML5.
+    </audio>
+    <div class="controls">
+      <button id="playPause" class="play"></button>
+      <div class="progress-container" id="progressContainer">
+        <div class="progress" id="progressBar"></div>
+      </div>
+      <div class="time">
+        <span id="currentTime">0:00</span> / <span id="duration">0:00</span>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    const audio = document.getElementById("song");
+    const playPauseBtn = document.getElementById("playPause");
+    const currentTimeSpan = document.getElementById("currentTime");
+    const durationSpan = document.getElementById("duration");
+    const progressContainer = document.getElementById("progressContainer");
+    const progressBar = document.getElementById("progressBar");
+
+    function formatTime(seconds) {
+      const mins = Math.floor(seconds / 60);
+      const secs = Math.floor(seconds % 60);
+      return `${mins}:${secs < 10 ? "0" : ""}${secs}`;
+    }
+
+    audio.addEventListener("loadedmetadata", () => {
+      durationSpan.textContent = formatTime(audio.duration);
+    });
+
+    audio.addEventListener("timeupdate", () => {
+      currentTimeSpan.textContent = formatTime(audio.currentTime);
+      const percent = (audio.currentTime / audio.duration) * 100;
+      progressBar.style.width = percent + "%";
+    });
+
+    playPauseBtn.addEventListener("click", () => {
+      if (audio.paused) {
+        audio.play();
+        playPauseBtn.classList.remove("play");
+        playPauseBtn.classList.add("pause");
+      } else {
+        audio.pause();
+        playPauseBtn.classList.remove("pause");
+        playPauseBtn.classList.add("play");
+      }
+    });
+
+    progressContainer.addEventListener("click", (e) => {
+      const width = progressContainer.clientWidth;
+      const clickX = e.offsetX;
+      const duration = audio.duration;
+      audio.currentTime = (clickX / width) * duration;
+    });
+  </script>
+
+</body>
+</html>
